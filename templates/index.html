@@ -16,7 +16,7 @@
             align-items: center;
         }
 
-        #user-input{
+        #user_input{
             width: 600px;
             height: 500px;
             border: 1px solid black;
@@ -26,14 +26,22 @@
 <body>
     <div>
         <div class="div1">
-            <form action="">
-                <label for="user-input">Type or paste your text below 👇</label>
-                <textarea name="input" id="user-input"></textarea>
+            <form id="input_form" action="/" method="POST">
+                <label for="user_input">Type or paste your text below 👇</label>
+                <textarea name="user_input" id="user_input"></textarea>
             </form>
         </div>
         <div class="div-2">
+            <p>Words: </p>
         </div>
     </div>
-    
+    <script>
+        const user_inp = document.getElementById("user_input");
+        const form_input = document.getElementById("input_form");
+        
+        user_inp.addEventListener("input", function() {
+        form_input.submit();
+        });
+    </script>
 </body>
 </html>
