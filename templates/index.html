@@ -32,16 +32,18 @@
             </form>
         </div>
         <div class="div-2">
-            <p>Words: </p>
+            <p>Words: <span id="word_count">0</span></p>
         </div>
     </div>
     <script>
         const user_inp = document.getElementById("user_input");
         const form_input = document.getElementById("input_form");
         
-        user_inp.addEventListener("input", function() {
-        form_input.submit();
-        });
+        user_inp.addEventListener("input", calculate)
+        
+        function calculte(e){
+        return e.target.value.split(" ").length()
+        };
     </script>
 </body>
 </html>
