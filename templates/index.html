@@ -33,17 +33,38 @@
         </div>
         <div class="div-2">
             <p>Words: <span id="word_count">0</span></p>
+            <p>Characters: <span id="char_count">0</span></p>
         </div>
+        <div-2>
+            <p>Sentences: <span id="sen_count">0</span></p>
+            <p>Paragraphs: <span id="par_count">0</span></p>
+        </div-2>
     </div>
     <script>
         const user_inp = document.getElementById("user_input");
         const form_input = document.getElementById("input_form");
+        const word = document.getElementById("word_count");
+        const character = document.getElementById("char_count")
+        const sentence = document.getElementById("sen_count");
+        const paragraph = document.getElementById("par_count");
         
         user_inp.addEventListener("input", calculate)
         
-        function calculte(e){
-        return e.target.value.split(" ").length()
+        function calculate(e){
+        word_count = e.target.value.split(' ').length;
+            word.textContent = word_count;
+
+        char_count = e.target.value.split('').length;
+            character.textContent = char_count;
+
+        sen_count = e.target.value.split('.').length;
+            sentence.textContent = sen_count;
+
+        par_count = e.target.value.split(/\n\s*\n/).filter(Boolean).length;
+            paragraph.textContent = par_count;
         };
+
+
     </script>
 </body>
 </html>
