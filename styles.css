@@ -1,13 +1,6 @@
 * {
-    margin: auto;
+    margin: 0;
     padding: 0;
-}
-
-
-#user_input{
-    width: 750px;
-    height: 253px;
-    border: 1px solid black;
 }
 
 .info {
@@ -54,8 +47,50 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+
+    .container{
+        padding: 16px;
+        border-width: 1px;
+        background-color: #FFFFFF;
+        border-color: #dcdfe4;
+        border-style: solid;
+        border-radius: 8px;
+    }
+
+    .div-1{
+        box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12), 0px 0px 2px 0px rgba(0, 0, 0, 0.20);
+        border: 0;
+        height: 50vh;
+        padding-left: 16px;
+        padding-top: 16px;
+        padding-right: 0px;
+        padding-bottom: 16px;
+        position: relative;
+        border-radius: 8px;
+        background-color: #FFFFFF;
+        box-sizing: inherit;
+    }
+
+
+
+
     .subdiv-1{
         display: flex;
+    }
+
+    p{
+    margin: 0;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+    min-width: 42%;
+    color: #172b4d;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
     }
     }
 

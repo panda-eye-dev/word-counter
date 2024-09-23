@@ -12,7 +12,7 @@
         <div class="div-1">
             <form id="input_form" action="/" method="POST">
                 <label for="user_input"></label>
-                <textarea name="user_input" id="user_input" placeholder="Type or Paste your words here..."></textarea>
+                <textarea name="user_input" class="inp" id="user_input" placeholder="Type or Paste your words here..."></textarea>
             </form>
         </div>
         <div class="div-2">
@@ -43,7 +43,7 @@
         const reading_time = document.getElementById("reading_time")
         
         user_inp.addEventListener("input", calculate)
-        
+
         function calculate(e){
         word_count = e.target.value.split(' ').length;
             word.textContent = word_count;
@@ -65,6 +65,7 @@
         }
             reading_time.textContent = result;
         };
+
         
 
     </script>
