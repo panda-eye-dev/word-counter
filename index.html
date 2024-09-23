@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Word Counter</title>
+</head>
+<body>
+    <div class="container">
+        <div class="div-1">
+            <form id="input_form" action="/" method="POST">
+                <label for="user_input"></label>
+                <textarea name="user_input" id="user_input" placeholder="Type or Paste your words here..."></textarea>
+            </form>
+        </div>
+        <div class="div-2">
+            <div class="subdiv-1">   
+                <div>
+                    <p>Words: <span id="word_count">0</span></p>
+                    <p>Characters: <span id="char_count">0</span></p>
+                </div>
+                <div >
+                    <p>Sentences: <span id="sen_count">0</span></p>
+                    <p>Paragraphs: <span id="par_count">0</span></p>
+                </div>
+            </div>
+            <div class="subdiv-2">
+                <p>Characters without spaces: </p>
+                <p>Reading level<i class="fa fa-exclamation-circle"></i>:<span id="reading_time">0 min</span></p>
+                <p>Grade level<i class="fa fa-exclamation-circle"></i>:</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const user_inp = document.getElementById("user_input");
+        const form_input = document.getElementById("input_form");
+        const word = document.getElementById("word_count");
+        const character = document.getElementById("char_count")
+        const sentence = document.getElementById("sen_count");
+        const paragraph = document.getElementById("par_count");
+        const reading_time = document.getElementById("reading_time")
+        
+        user_inp.addEventListener("input", calculate)
+        
+        function calculate(e){
+        word_count = e.target.value.split(' ').length;
+            word.textContent = word_count;
+
+        char_count = e.target.value.split('').length;
+            character.textContent = char_count;
+
+        sen_count = e.target.value.split('.').length;
+            sentence.textContent = sen_count;
+
+        par_count = e.target.value.split(/\n\s*\n/).filter(Boolean).length;
+            paragraph.textContent = par_count;
+
+        const wordsPerMinute = 200;
+        textLength = e.target.value.split(" ").length;
+        if (textLength > 0){
+            let value = Math.ceil(textLength / wordsPerMinute);
+            result = `~${value} min read`
+        }
+            reading_time.textContent = result;
+        };
+        
+
+    </script>
+</body>
+</html>
