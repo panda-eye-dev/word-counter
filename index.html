@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="container">
+        <h1 class="app-title">Count 'em</h1>
         <div class="div-1">
             <form id="input_form" action="/" method="POST">
                 <label for="user_input"></label>
@@ -27,9 +28,8 @@
                 </div>
             </div>
             <div class="subdiv-2">
-                <p>Characters without spaces: </p>
-                <p>Reading level<i class="fa fa-exclamation-circle"></i>:<span id="reading_time">0 min</span></p>
-                <p>Grade level<i class="fa fa-exclamation-circle"></i>:</p>
+                <p>Characters without spaces: <span id="char_without_space">  0</span></p>
+                <!-- <p>Reading level<i class="fa fa-exclamation-circle"></i>:<span id="reading_time">  0 min</span></p> -->
             </div>
         </div>
     </div>
@@ -41,7 +41,8 @@
         const sentence = document.getElementById("sen_count");
         const paragraph = document.getElementById("par_count");
         const reading_time = document.getElementById("reading_time")
-        
+        const char_without_space = document.getElementById("char_without_space");
+
         user_inp.addEventListener("input", calculate)
 
         function calculate(e){
@@ -64,9 +65,12 @@
             result = `~${value} min read`
         }
             reading_time.textContent = result;
-        };
 
-        
+        removeSpacesText = e.target.value.split(/\s+/).join("");
+        totalText = removeSpacesText.length;
+        char_without_space.textContent = totalText;
+
+        };
 
     </script>
 </body>
