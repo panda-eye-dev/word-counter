@@ -9,11 +9,17 @@
 </head>
 <body>
     <div class="container">
+        <div class="copy-icon">
+            <span id="copy-quote">
+                <img src="https://i.imgur.com/zHgKDpN.png" alt="" />
+            </span>
+        </div>
         <h1 class="app-title">Count 'em</h1>
+        <p class="app-sub">The 125546th word counter out there </p>
         <div class="div-1">
             <form id="input_form" action="/" method="POST">
-                <label for="user_input"></label>
-                <textarea name="user_input" class="inp" id="user_input" placeholder="Type or Paste your words here..."></textarea>
+            <label for="user_input"></label>
+            <textarea name="user_input" class="inp" id="user_input" placeholder="Type or Paste your words here..."></textarea>
             </form>
         </div>
         <div class="div-2">
@@ -29,7 +35,7 @@
             </div>
             <div class="subdiv-2">
                 <p>Characters without spaces: <span id="char_without_space">  0</span></p>
-                <!-- <p>Reading level<i class="fa fa-exclamation-circle"></i>:<span id="reading_time">  0 min</span></p> -->
+                <p>Reading time<i class="fa fa-exclamation-circle"></i> :<span id="reading_time">  0 min</span></p>
             </div>
         </div>
     </div>
@@ -42,18 +48,24 @@
         const paragraph = document.getElementById("par_count");
         const reading_time = document.getElementById("reading_time")
         const char_without_space = document.getElementById("char_without_space");
+        const handleCopyClick = document.querySelector('#copy-quote');
 
         user_inp.addEventListener("input", calculate)
 
         function calculate(e){
-        word_count = e.target.value.split(' ').length;
+        
+        if( e.target.value == 0){
+            word.textContent = 0;
+            sentence.textContent = 0;
+        } else {
+            word_count = e.target.value.split(' ').length;
             word.textContent = word_count;
+            sen_count = e.target.value.split('.').length;
+            sentence.textContent = sen_count;
+        }
 
         char_count = e.target.value.split('').length;
             character.textContent = char_count;
-
-        sen_count = e.target.value.split('.').length;
-            sentence.textContent = sen_count;
 
         par_count = e.target.value.split(/\n\s*\n/).filter(Boolean).length;
             paragraph.textContent = par_count;
@@ -66,12 +78,30 @@
         }
             reading_time.textContent = result;
 
-        removeSpacesText = e.target.value.split(/\s+/).join("");
-        totalText = removeSpacesText.length;
-        char_without_space.textContent = totalText;
+        removeSpacesText = e.target.value.split(/\s+/).join("").length;
+        char_without_space.textContent = removeSpacesText;
 
+        // handleCopyClick.addEventListener('click', () => {
+        //     text = e.target.value.textContent;
+        //     navigator.clipboard.writeText(`${text});
+        //     alert("Text Copied to clipboard!")
+        // })
         };
 
     </script>
+    <!-- Issues:
+     1. After deleting the text, the words and sentences
+     shows 1
+     2. Have a Copy icon on the far left of the textarea.
+     Apply copy logic and it should say "Text copies to 
+     clipboard"
+     3. Have a delete icon on the far right of the textarea.
+     Apply delete logic 
+     4. The reading time info icon should display
+     info when hovered like a superscript
+     5. Style the title better and all the text too.
+     6. Add another app box below the word counter box -
+     Web page text extractor
+     7. Pdf to text convertor for another box-->
 </body>
 </html>
