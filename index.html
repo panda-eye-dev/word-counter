@@ -9,8 +9,11 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="app-title">Count 'em</h1>
-        <p class="app-sub">The 125546th word counter out there </p>
+        <div class="one">
+            <h1>Count 'em
+                <span>The 125546th word counter out there </span>
+        </h1>  
+        </div>
         <div class="div-1">
             <div>
                 
@@ -19,7 +22,6 @@
             <label for="user_input"></label>
             <textarea name="user_input" class="inp" id="user_input" placeholder="Type or Paste your words here..."></textarea>
             <!-- <span class="icon-user"></span> -->
-            <!-- <div class="hide">Copy Text</div> -->
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy copy" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
               </svg>
@@ -42,7 +44,7 @@
             </div>
             <div class="subdiv-2">
                 <p>Characters without spaces: <span id="char_without_space">  0</span></p>
-                <p>Reading time<i class="fa fa-exclamation-circle"></i> :<span id="reading_time">  0 min</span></p>
+                <p>Reading time<i class="fa fa-exclamation-circle tooltip"><span class="tooltiptext">Based on an average speed of 200 words per minute</span></i> :<span id="reading_time">  0 min </span></p>
             </div>
         </div>
     </div>
@@ -115,19 +117,5 @@
             alert("Text Copied!")
         })
     </script>
-    <!-- Issues:
-     1. After deleting the text, the words and sentences
-     shows 1 (DONE)
-     2. Have a Copy icon on the far left of the textarea.
-     Apply copy logic and it should say "Text copies to 
-     clipboard"
-     3. Have a delete icon on the far right of the textarea.
-     Apply delete logic 
-     4. The reading time info icon should display
-     info when hovered like a superscript
-     5. Style the title better and all the text too.
-     6. Add another app box below the word counter box -
-     Web page text extractor
-     7. Pdf to text convertor for another box-->
 </body>
 </html>
