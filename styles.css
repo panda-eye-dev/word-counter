@@ -37,6 +37,7 @@ body {
 
 .div-1 {
     margin-bottom: 16px;
+    z-index: 0;
 }
 
 textarea.inp {
@@ -81,6 +82,50 @@ p {
 .copy-icon img {
 	width: 30px;
 	cursor: pointer;
+}
+
+#input_form{
+    position: relative;
+
+}
+
+.copy{
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 6px;
+    top: -18px;
+    z-index: 1;
+}
+
+#trash{
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    right: 6px;
+    top: -18px;
+    z-index: 1;
+}
+
+#trash:hover{
+    top: -25px;
+}
+
+.copy-text{
+    display: none;
+}
+
+svg:hover{
+    top: -25px;
+}
+
+.bi {
+    cursor: pointer;
+    transition: fill 0.3s;
+}
+
+.bi:active{
+    fill: #ff0000;
 }
 
 @media (max-width: 600px) {
